@@ -2,11 +2,12 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Home, TrendingUp, DollarSign, Users, Target, FileText, Zap, BarChart3, Shield } from "lucide-react";
+import { Home, TrendingUp, DollarSign, Users, Target, FileText, Zap, BarChart3, Shield, Rocket } from "lucide-react";
 
 const navItems = [
   { href: "/", label: "Home", icon: Home },
   { href: "/competitive-intelligence", label: "Competitive Intel", icon: TrendingUp },
+  { href: "/startup-ecosystem", label: "Startup Ecosystem", icon: Rocket },
   { href: "/value-chain", label: "SDLC Value Chain", icon: Zap },
   { href: "/business-case", label: "Business Case & ROI", icon: DollarSign },
   { href: "/pricing-strategy", label: "Pricing Strategy", icon: BarChart3 },
