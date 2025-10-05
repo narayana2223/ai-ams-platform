@@ -1,8 +1,15 @@
 # AI-AMS Leadership Presentation Platform
 
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
+[![Next.js](https://img.shields.io/badge/Next.js-14-black)](https://nextjs.org/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.0-blue)](https://www.typescriptlang.org/)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind-3.0-38bdf8)](https://tailwindcss.com/)
+
 ## Executive Presentation for Fortune 500 Leadership
 
 This is a Next.js-based interactive web platform presenting the AI-Augmented Application Maintenance & Support (AI-AMS) strategy with real data from 9 comprehensive research documents.
+
+🔗 **Live Demo**: [Deploy to Vercel](https://vercel.com/new/clone?repository-url=https://github.com/narayana2223/ai-ams-platform)
 
 ---
 
