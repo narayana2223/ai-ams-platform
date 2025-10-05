@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { ArrowLeft, DollarSign, TrendingUp, Shield, Users, FileText, BarChart3, Calculator, AlertTriangle, CheckCircle } from "lucide-react";
+import { ArrowLeft, ArrowRight, DollarSign, TrendingUp, Shield, Users, FileText, BarChart3, Calculator, AlertTriangle, CheckCircle } from "lucide-react";
 import { Section } from "@/components/Section";
 import { DataTable } from "@/components/DataTable";
 import { TabGroup } from "@/components/TabGroup";
