@@ -41,31 +41,31 @@ export default function StartupEcosystemPage() {
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12"
         >
           <MetricCard
-            title="Total Startups Analyzed"
+            label="Total Startups Analyzed"
             value="78"
             subtitle="Across 10 categories"
-            icon={Building}
+            icon={<Building className="h-8 w-8" />}
             variant="default"
           />
           <MetricCard
-            title="Total Funding Raised"
+            label="Total Funding Raised"
             value="$8.2B+"
             subtitle="2024-2025 period"
-            icon={DollarSign}
+            icon={<DollarSign className="h-8 w-8" />}
             variant="success"
           />
           <MetricCard
-            title="Very High Threat"
+            label="Very High Threat"
             value="22 (28%)"
             subtitle="Immediate disruption risk"
-            icon={AlertTriangle}
+            icon={<AlertTriangle className="h-8 w-8" />}
             variant="danger"
           />
           <MetricCard
-            title="Average Productivity Gain"
+            label="Average Productivity Gain"
             value="45-70%"
             subtitle="Faster development"
-            icon={TrendingUp}
+            icon={<TrendingUp className="h-8 w-8" />}
             variant="success"
           />
         </motion.div>
@@ -74,7 +74,7 @@ export default function StartupEcosystemPage() {
         <Section
           title="Critical Findings"
           subtitle="Market-shaping insights from startup ecosystem analysis"
-          icon={Target}
+          icon={<Target className="h-6 w-6" />}
           defaultExpanded={true}
         >
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
@@ -147,7 +147,7 @@ export default function StartupEcosystemPage() {
         <Section
           title="1. AI Code Generation & Developer Productivity"
           subtitle="Market Size: $50B+ TAM | Funding: $1.4B+ (2024)"
-          icon={Code}
+          icon={<Code className="h-6 w-6" />}
           badge="Very High Threat"
           defaultExpanded={true}
         >
@@ -248,7 +248,7 @@ export default function StartupEcosystemPage() {
         <Section
           title="2. AI Testing & Quality Assurance"
           subtitle="Market Size: $15B+ TAM | Manual Testing Cost: $2.3M/year per 100-person team"
-          icon={CheckCircle}
+          icon={<CheckCircle className="h-6 w-6" />}
           badge="Very High Threat"
         >
           <DataTable
@@ -348,7 +348,7 @@ export default function StartupEcosystemPage() {
         <Section
           title="3. AIOps, Observability & Incident Management"
           subtitle="Market Size: $32B by 2028 | Alert Noise Problem: 95% false positives"
-          icon={Zap}
+          icon={<Zap className="h-6 w-6" />}
           badge="Very High Threat"
         >
           <DataTable
@@ -441,7 +441,7 @@ export default function StartupEcosystemPage() {
         <Section
           title="4. DevSecOps & Application Security"
           subtitle="Market Size: $12B+ TAM | Supply Chain Attacks: +650% (2024)"
-          icon={Shield}
+          icon={<Shield className="h-6 w-6" />}
           badge="Very High Threat"
         >
           <DataTable
@@ -534,7 +534,7 @@ export default function StartupEcosystemPage() {
         <Section
           title="5. Cloud Cost Optimization & FinOps"
           subtitle="Market Size: $723B cloud spend (2025) | Waste: 27% = $195B+"
-          icon={Cloud}
+          icon={<Cloud className="h-6 w-6" />}
           badge="Very High Threat"
         >
           <DataTable
@@ -618,7 +618,7 @@ export default function StartupEcosystemPage() {
         <Section
           title="Cross-Cutting Analysis: Funding Trends"
           subtitle="Investment patterns and stage distribution (2024-2025)"
-          icon={DollarSign}
+          icon={<DollarSign className="h-6 w-6" />}
           defaultExpanded={true}
         >
           <DataTable
@@ -718,7 +718,7 @@ export default function StartupEcosystemPage() {
         <Section
           title="Threat Assessment Matrix"
           subtitle="Strategic categorization of startup disruption potential"
-          icon={AlertTriangle}
+          icon={<AlertTriangle className="h-6 w-6" />}
           defaultExpanded={true}
         >
           {/* Top 10 Most Disruptive */}
@@ -825,6 +825,7 @@ export default function StartupEcosystemPage() {
           <TabGroup
             tabs={[
               {
+                id: "very-high",
                 label: "Very High Threat",
                 content: (
                   <div className="space-y-4">
@@ -860,6 +861,7 @@ export default function StartupEcosystemPage() {
                 ),
               },
               {
+                id: "high",
                 label: "High Threat",
                 content: (
                   <div className="space-y-4">
@@ -898,6 +900,7 @@ export default function StartupEcosystemPage() {
                 ),
               },
               {
+                id: "medium",
                 label: "Medium Threat",
                 content: (
                   <div className="space-y-4">
@@ -943,7 +946,7 @@ export default function StartupEcosystemPage() {
         <Section
           title="Strategic Implications for AI-AMS"
           subtitle="Partnership strategy, revenue impact, and competitive response timeline"
-          icon={Target}
+          icon={<Target className="h-6 w-6" />}
           defaultExpanded={true}
         >
           {/* Revenue Impact Model */}
@@ -1036,6 +1039,7 @@ export default function StartupEcosystemPage() {
           <TabGroup
             tabs={[
               {
+                id: "tier1",
                 label: "Tier 1 - Must-Partner",
                 content: (
                   <div className="space-y-4">
@@ -1068,6 +1072,7 @@ export default function StartupEcosystemPage() {
                 ),
               },
               {
+                id: "tier2",
                 label: "Tier 2 - Selective Integration",
                 content: (
                   <div className="space-y-4">
@@ -1107,6 +1112,7 @@ export default function StartupEcosystemPage() {
                 ),
               },
               {
+                id: "tier3",
                 label: "Tier 3 - Build/Differentiate",
                 content: (
                   <div className="space-y-4">
@@ -1205,7 +1211,7 @@ export default function StartupEcosystemPage() {
         <Section
           title="Investment & M&A Opportunities"
           subtitle="Prime acquisition targets and strategic rationale"
-          icon={DollarSign}
+          icon={<DollarSign className="h-6 w-6" />}
         >
           <div className="bg-gradient-to-r from-purple-50 to-indigo-50 border-l-4 border-purple-500 p-6 rounded-lg mb-6">
             <h4 className="font-semibold text-gray-900 mb-4">Prime Acquisition Targets (Series A/Early Series B)</h4>
@@ -1259,7 +1265,7 @@ export default function StartupEcosystemPage() {
         <Section
           title="Final Threat Assessment & Survival Strategies"
           subtitle="Critical risk evaluation and transformation roadmap"
-          icon={AlertTriangle}
+          icon={<AlertTriangle className="h-6 w-6" />}
           defaultExpanded={true}
         >
           <div className="bg-gradient-to-r from-red-100 via-red-50 to-orange-50 border-2 border-red-400 rounded-xl p-8 mb-6">
