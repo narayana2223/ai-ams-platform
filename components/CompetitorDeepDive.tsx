@@ -48,11 +48,20 @@ interface Competitor {
 }
 
 export function CompetitorDeepDive({ competitor }: { competitor: Competitor }) {
-  const [expandedSection, setExpandedSection] = useState<string | null>(null);
+  // Track collapsed sections - all start expanded
+  const [collapsedSections, setCollapsedSections] = useState<Set<string>>(new Set());
 
   const toggleSection = (section: string) => {
-    setExpandedSection(expandedSection === section ? null : section);
+    const newCollapsed = new Set(collapsedSections);
+    if (newCollapsed.has(section)) {
+      newCollapsed.delete(section);
+    } else {
+      newCollapsed.add(section);
+    }
+    setCollapsedSections(newCollapsed);
   };
+
+  const isExpanded = (section: string) => !collapsedSections.has(section);
 
   const getThreatColor = (level: number) => {
     if (level >= 8) return "bg-red-500";
@@ -105,7 +114,7 @@ export function CompetitorDeepDive({ competitor }: { competitor: Competitor }) {
       <Section
         title="Platform Architecture & Tech Stack"
         icon={<Code className="h-5 w-5" />}
-        isExpanded={expandedSection === "architecture"}
+        isExpanded={isExpanded("architecture")}
         onToggle={() => toggleSection("architecture")}
       >
         <div className="space-y-4">
@@ -134,9 +143,8 @@ export function CompetitorDeepDive({ competitor }: { competitor: Competitor }) {
       <Section
         title="Unique Selling Propositions"
         icon={<Target className="h-5 w-5" />}
-        isExpanded={expandedSection === "usp"}
+        isExpanded={isExpanded("usp")}
         onToggle={() => toggleSection("usp")}
-        defaultOpen
       >
         <div className="space-y-4">
           {competitor.uniqueSellingPropositions.map((usp, idx) => (
@@ -162,7 +170,7 @@ export function CompetitorDeepDive({ competitor }: { competitor: Competitor }) {
       <Section
         title="AMS-Specific Capabilities"
         icon={<Zap className="h-5 w-5" />}
-        isExpanded={expandedSection === "ams"}
+        isExpanded={isExpanded("ams")}
         onToggle={() => toggleSection("ams")}
       >
         <div className="space-y-4">
@@ -193,7 +201,7 @@ export function CompetitorDeepDive({ competitor }: { competitor: Competitor }) {
       <Section
         title="Client Success Stories"
         icon={<TrendingUp className="h-5 w-5" />}
-        isExpanded={expandedSection === "success"}
+        isExpanded={isExpanded("success")}
         onToggle={() => toggleSection("success")}
       >
         <div className="space-y-4">
@@ -237,7 +245,7 @@ export function CompetitorDeepDive({ competitor }: { competitor: Competitor }) {
       <Section
         title="Market Approach & Positioning"
         icon={<DollarSign className="h-5 w-5" />}
-        isExpanded={expandedSection === "market"}
+        isExpanded={isExpanded("market")}
         onToggle={() => toggleSection("market")}
       >
         <div className="grid gap-4 md:grid-cols-2">
@@ -256,7 +264,7 @@ export function CompetitorDeepDive({ competitor }: { competitor: Competitor }) {
       <Section
         title="Competitive Analysis"
         icon={<Shield className="h-5 w-5" />}
-        isExpanded={expandedSection === "competitive"}
+        isExpanded={isExpanded("competitive")}
         onToggle={() => toggleSection("competitive")}
       >
         <div className="grid gap-6 md:grid-cols-2">
