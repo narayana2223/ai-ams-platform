@@ -2,8 +2,9 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { ArrowRight, ArrowLeft, Shield, TrendingUp, Zap } from "lucide-react";
+import { ArrowRight, ArrowLeft, Shield, TrendingUp, Zap, AlertTriangle } from "lucide-react";
 import { SourceCard } from "@/components/SourceCard";
+import { CompetitorDeepDive } from "@/components/CompetitorDeepDive";
 import competitiveData from "@/data/competitive-intelligence.json";
 
 export default function CompetitiveIntelligence() {
@@ -27,7 +28,7 @@ export default function CompetitiveIntelligence() {
             Competitive Intelligence: <span className="gradient-text">Know Your Enemy</span>
           </h1>
           <p className="text-xl text-gray-600">
-            Who's coming for your business and how they're winning
+            Deep analysis of platforms, strategies, and execution capabilities
           </p>
         </motion.div>
 
@@ -36,83 +37,89 @@ export default function CompetitiveIntelligence() {
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ delay: 0.2 }}
-          className="mb-12 rounded-2xl bg-red-50 border-2 border-red-200 p-8"
+          className="mb-12 rounded-2xl bg-gradient-to-r from-red-50 to-orange-50 border-2 border-red-200 p-8"
         >
-          <h2 className="mb-4 text-2xl font-bold text-red-900">
-            ⚠️ The Market is Being Attacked from Three Sides
-          </h2>
-          <p className="text-lg text-red-800">
-            You have <span className="font-bold">18 months</span> to respond before significant market displacement.
-          </p>
+          <div className="mb-4 flex items-start gap-4">
+            <AlertTriangle className="h-8 w-8 flex-shrink-0 text-red-600" />
+            <div>
+              <h2 className="mb-2 text-2xl font-bold text-red-900">
+                Three-Front Attack on Your Business
+              </h2>
+              <p className="mb-4 text-lg text-red-800">
+                You have <span className="font-bold">18 months</span> to respond before significant market displacement.
+              </p>
+              <div className="grid gap-4 md:grid-cols-3">
+                <div className="rounded-lg bg-white p-4">
+                  <div className="text-2xl font-bold text-blue-600">Big 4</div>
+                  <div className="text-sm text-gray-700">$2-3B investments, 20-30% premium pricing</div>
+                </div>
+                <div className="rounded-lg bg-white p-4">
+                  <div className="text-2xl font-bold text-purple-600">Platform Giants</div>
+                  <div className="text-sm text-gray-700">Automating L1/L2 support out of existence</div>
+                </div>
+                <div className="rounded-lg bg-white p-4">
+                  <div className="text-2xl font-bold text-orange-600">78 Startups</div>
+                  <div className="text-sm text-gray-700">$8.2B funding, 70-90% productivity gains</div>
+                </div>
+              </div>
+            </div>
+          </div>
         </motion.div>
 
-        {/* Section A: Big 4 Consulting Giants */}
+        {/* Section A: Big 4 Deep Dives */}
         <section className="mb-16">
-          <motion.h2
+          <motion.div
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
-            className="subsection-heading mb-8"
+            className="mb-8"
           >
-            A. The Big 4 Consulting Giants
-          </motion.h2>
+            <h2 className="subsection-heading mb-4">
+              A. The Big 4 Consulting Giants - Deep Analysis
+            </h2>
+            <p className="text-lg text-gray-600">
+              Comprehensive breakdown of platform architecture, unique capabilities, and market execution strategies
+            </p>
+          </motion.div>
 
-          <div className="overflow-x-auto">
-            <table className="w-full rounded-lg border bg-white shadow-sm">
-              <thead className="bg-blue-50">
-                <tr>
-                  <th className="px-6 py-4 text-left text-sm font-semibold text-gray-900">Company</th>
-                  <th className="px-6 py-4 text-left text-sm font-semibold text-gray-900">Platform</th>
-                  <th className="px-6 py-4 text-left text-sm font-semibold text-gray-900">Scale</th>
-                  <th className="px-6 py-4 text-left text-sm font-semibold text-gray-900">Investment</th>
-                  <th className="px-6 py-4 text-left text-sm font-semibold text-gray-900">Threat Level</th>
-                </tr>
-              </thead>
-              <tbody className="divide-y divide-gray-200">
-                {competitiveData.big4.map((company, index) => (
-                  <motion.tr
-                    key={company.company}
-                    initial={{ opacity: 0, x: -20 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: index * 0.1 }}
-                    className="transition-colors hover:bg-gray-50"
-                  >
-                    <td className="px-6 py-4 font-semibold text-gray-900">{company.company}</td>
-                    <td className="px-6 py-4 text-gray-700">{company.platform}</td>
-                    <td className="px-6 py-4 text-sm text-gray-600">{company.scale}</td>
-                    <td className="px-6 py-4 text-sm text-gray-600">{company.investment}</td>
-                    <td className="px-6 py-4">
-                      <div className="flex items-center gap-2">
-                        <div className="h-2 w-24 overflow-hidden rounded-full bg-gray-200">
-                          <div
-                            className="h-full bg-red-500"
-                            style={{ width: `${company.threatLevel * 10}%` }}
-                          />
-                        </div>
-                        <span className="text-sm font-medium text-gray-700">
-                          {company.threatLevel}/10
-                        </span>
-                      </div>
-                    </td>
-                  </motion.tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
+          {competitiveData.big4.map((company, index) => (
+            <motion.div
+              key={company.company}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: index * 0.1 }}
+            >
+              <CompetitorDeepDive competitor={company} />
+            </motion.div>
+          ))}
 
           <motion.div
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
-            className="mt-6 rounded-lg bg-blue-50 p-6"
+            className="rounded-2xl bg-gradient-to-r from-blue-50 to-indigo-50 border-2 border-blue-200 p-6"
           >
-            <p className="text-lg font-semibold text-blue-900">
-              💡 Key Insight: They're all pricing 20-30% premium with AI story
-            </p>
+            <h4 className="mb-3 text-xl font-bold text-blue-900">💡 Strategic Insight: Big 4 Positioning</h4>
+            <ul className="space-y-2 text-gray-700">
+              <li className="flex items-start gap-2">
+                <span className="text-blue-600">•</span>
+                <span><strong>Premium Pricing:</strong> All commanding 20-30% premium through AI transformation story</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="text-blue-600">•</span>
+                <span><strong>C-Suite Access:</strong> Leveraging existing executive relationships for platform adoption</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="text-blue-600">•</span>
+                <span><strong>Hybrid Models:</strong> Combining consulting expertise with technology platforms</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="text-blue-600">•</span>
+                <span><strong>Industry Specialization:</strong> Vertical-specific AI models providing competitive moats</span>
+              </li>
+            </ul>
           </motion.div>
-
-          <SourceCard sources={["Company investor decks Q3 2024", "Public company filings"]} />
         </section>
 
         {/* Section B: Platform Giants */}
@@ -165,11 +172,27 @@ export default function CompetitiveIntelligence() {
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
-            className="mt-6 rounded-lg bg-red-50 p-6"
+            className="mt-6 rounded-2xl bg-gradient-to-r from-red-50 to-pink-50 border-2 border-red-200 p-6"
           >
-            <p className="text-lg font-semibold text-red-900">
-              💡 Key Insight: They're automating L1/L2 support out of existence
-            </p>
+            <h4 className="mb-3 text-xl font-bold text-red-900">💡 Strategic Insight: Platform Threat</h4>
+            <ul className="space-y-2 text-gray-700">
+              <li className="flex items-start gap-2">
+                <span className="text-red-600">•</span>
+                <span><strong>ServiceNow:</strong> 80% Fortune 500 penetration - automating ITSM workflows end-to-end</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="text-red-600">•</span>
+                <span><strong>GitHub Copilot:</strong> 50M+ developers - eliminating traditional development support needs</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="text-red-600">•</span>
+                <span><strong>Observability Platforms:</strong> Datadog & PagerDuty making L1/L2 monitoring obsolete</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="text-red-600">•</span>
+                <span><strong>Direct Procurement:</strong> Enterprises buying platform subscriptions, bypassing services</span>
+              </li>
+            </ul>
           </motion.div>
 
           <SourceCard sources={["Public company filings", "Gartner Market Research"]} />
@@ -186,10 +209,10 @@ export default function CompetitiveIntelligence() {
             C. The Startup Swarm ({competitiveData.startupSwarm.totalStartups} Disruptors)
           </motion.h2>
 
-          <div className="mb-8 rounded-2xl bg-gradient-to-br from-orange-50 to-red-50 p-8">
+          <div className="mb-8 rounded-2xl bg-gradient-to-br from-orange-50 to-red-50 border-2 border-orange-200 p-8">
             <div className="mb-6 grid gap-6 md:grid-cols-3">
               <div className="text-center">
-                <div className="mb-2 text-4xl font-bold text-orange-600">
+                <div className="mb-2 text-4xl font-bold text-red-600">
                   {competitiveData.startupSwarm.veryHighThreat.count}
                 </div>
                 <div className="text-sm font-medium text-gray-700">Very High Threat</div>
@@ -198,7 +221,7 @@ export default function CompetitiveIntelligence() {
                 </div>
               </div>
               <div className="text-center">
-                <div className="mb-2 text-4xl font-bold text-orange-500">
+                <div className="mb-2 text-4xl font-bold text-orange-600">
                   {competitiveData.startupSwarm.highThreat.count}
                 </div>
                 <div className="text-sm font-medium text-gray-700">High Threat</div>
@@ -207,7 +230,7 @@ export default function CompetitiveIntelligence() {
                 </div>
               </div>
               <div className="text-center">
-                <div className="mb-2 text-4xl font-bold text-orange-400">
+                <div className="mb-2 text-4xl font-bold text-yellow-600">
                   {competitiveData.startupSwarm.mediumThreat.count}
                 </div>
                 <div className="text-sm font-medium text-gray-700">Medium Threat</div>
@@ -245,11 +268,27 @@ export default function CompetitiveIntelligence() {
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
-            className="rounded-lg bg-orange-50 p-6"
+            className="rounded-2xl bg-gradient-to-r from-orange-50 to-amber-50 border-2 border-orange-200 p-6"
           >
-            <p className="text-lg font-semibold text-orange-900">
-              💡 Key Insight: Clients will buy these directly unless you integrate them
-            </p>
+            <h4 className="mb-3 text-xl font-bold text-orange-900">💡 Strategic Insight: Startup Integration</h4>
+            <ul className="space-y-2 text-gray-700">
+              <li className="flex items-start gap-2">
+                <span className="text-orange-600">•</span>
+                <span><strong>Direct Procurement Risk:</strong> Clients buying startups directly, bypassing traditional AMS providers</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="text-orange-600">•</span>
+                <span><strong>Point Solution Excellence:</strong> 70-90% productivity gains in specific SDLC areas</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="text-orange-600">•</span>
+                <span><strong>Partnership Imperative:</strong> Must integrate or face $51M displacement risk</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="text-orange-600">•</span>
+                <span><strong>Revenue Opportunity:</strong> +$63M potential through smart ecosystem partnerships</span>
+              </li>
+            </ul>
           </motion.div>
 
           <SourceCard sources={["Crunchbase 2024-2025", "CB Insights", "TechCrunch"]} />
@@ -260,9 +299,9 @@ export default function CompetitiveIntelligence() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="mb-12 rounded-2xl bg-gradient-to-r from-blue-600 to-blue-800 p-8 text-white"
+          className="mb-12 rounded-2xl bg-gradient-to-r from-blue-600 to-indigo-700 p-8 text-white"
         >
-          <h2 className="mb-6 text-3xl font-bold">Strategic Takeaways</h2>
+          <h2 className="mb-6 text-3xl font-bold">Strategic Takeaways for Leadership</h2>
           <ul className="space-y-3">
             {competitiveData.keyInsights.map((insight, index) => (
               <li key={index} className="flex items-start gap-3">
@@ -283,10 +322,10 @@ export default function CompetitiveIntelligence() {
             Back to Home
           </Link>
           <Link
-            href="/value-chain"
+            href="/startup-ecosystem"
             className="inline-flex items-center gap-2 rounded-full bg-blue-600 px-6 py-3 font-semibold text-white hover:bg-blue-700"
           >
-            Next: SDLC Value Chain
+            Next: Startup Ecosystem Deep-Dive
             <ArrowRight className="h-5 w-5" />
           </Link>
         </div>
