@@ -28,7 +28,7 @@ export default function CompetitiveIntelligence() {
             Competitive Intelligence: <span className="gradient-text">Know Your Enemy</span>
           </h1>
           <p className="text-xl text-gray-600">
-            Deep analysis of platforms, strategies, and execution capabilities
+            Deep analysis of platforms, tech stacks, strategies, and execution capabilities
           </p>
         </motion.div>
 
