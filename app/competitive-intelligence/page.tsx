@@ -7,6 +7,9 @@ import { SourceCard } from "@/components/SourceCard";
 import { CompetitorDeepDive } from "@/components/CompetitorDeepDive";
 import competitiveData from "@/data/competitive-intelligence.json";
 
+// Type assertion to ensure proper typing
+const data = competitiveData as any;
+
 export default function CompetitiveIntelligence() {
   return (
     <main className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-slate-100">
@@ -82,7 +85,7 @@ export default function CompetitiveIntelligence() {
             </p>
           </motion.div>
 
-          {competitiveData.big4.map((company, index) => (
+          {data.big4.map((company: any, index: number) => (
             <motion.div
               key={company.company}
               initial={{ opacity: 0, y: 20 }}
@@ -134,7 +137,7 @@ export default function CompetitiveIntelligence() {
           </motion.h2>
 
           <div className="grid gap-6 md:grid-cols-2">
-            {competitiveData.platformGiants.map((platform, index) => (
+            {data.platformGiants.map((platform: any, index: number) => (
               <motion.div
                 key={platform.company}
                 initial={{ opacity: 0, y: 20 }}
@@ -206,36 +209,36 @@ export default function CompetitiveIntelligence() {
             viewport={{ once: true }}
             className="subsection-heading mb-8"
           >
-            C. The Startup Swarm ({competitiveData.startupSwarm.totalStartups} Disruptors)
+            C. The Startup Swarm ({data.startupSwarm.totalStartups} Disruptors)
           </motion.h2>
 
           <div className="mb-8 rounded-2xl bg-gradient-to-br from-orange-50 to-red-50 border-2 border-orange-200 p-8">
             <div className="mb-6 grid gap-6 md:grid-cols-3">
               <div className="text-center">
                 <div className="mb-2 text-4xl font-bold text-red-600">
-                  {competitiveData.startupSwarm.veryHighThreat.count}
+                  {data.startupSwarm.veryHighThreat.count}
                 </div>
                 <div className="text-sm font-medium text-gray-700">Very High Threat</div>
                 <div className="mt-2 text-xs text-gray-600">
-                  {competitiveData.startupSwarm.veryHighThreat.percentage}
+                  {data.startupSwarm.veryHighThreat.percentage}
                 </div>
               </div>
               <div className="text-center">
                 <div className="mb-2 text-4xl font-bold text-orange-600">
-                  {competitiveData.startupSwarm.highThreat.count}
+                  {data.startupSwarm.highThreat.count}
                 </div>
                 <div className="text-sm font-medium text-gray-700">High Threat</div>
                 <div className="mt-2 text-xs text-gray-600">
-                  {competitiveData.startupSwarm.highThreat.percentage}
+                  {data.startupSwarm.highThreat.percentage}
                 </div>
               </div>
               <div className="text-center">
                 <div className="mb-2 text-4xl font-bold text-yellow-600">
-                  {competitiveData.startupSwarm.mediumThreat.count}
+                  {data.startupSwarm.mediumThreat.count}
                 </div>
                 <div className="text-sm font-medium text-gray-700">Medium Threat</div>
                 <div className="mt-2 text-xs text-gray-600">
-                  {competitiveData.startupSwarm.mediumThreat.percentage}
+                  {data.startupSwarm.mediumThreat.percentage}
                 </div>
               </div>
             </div>
@@ -244,7 +247,7 @@ export default function CompetitiveIntelligence() {
               <div>
                 <h4 className="mb-2 font-semibold text-gray-900">Very High Threat Examples:</h4>
                 <div className="flex flex-wrap gap-2">
-                  {competitiveData.startupSwarm.veryHighThreat.examples.map((startup) => (
+                  {data.startupSwarm.veryHighThreat.examples.map((startup: string) => (
                     <span
                       key={startup}
                       className="rounded-full bg-red-100 px-3 py-1 text-sm font-medium text-red-800"
@@ -256,10 +259,10 @@ export default function CompetitiveIntelligence() {
               </div>
               <p className="text-sm text-gray-700">
                 <strong>Characteristics:</strong>{" "}
-                {competitiveData.startupSwarm.veryHighThreat.characteristics}
+                {data.startupSwarm.veryHighThreat.characteristics}
               </p>
               <p className="text-lg font-semibold text-orange-900">
-                💰 Total Funding: {competitiveData.startupSwarm.totalFunding}
+                💰 Total Funding: {data.startupSwarm.totalFunding}
               </p>
             </div>
           </div>
@@ -303,7 +306,7 @@ export default function CompetitiveIntelligence() {
         >
           <h2 className="mb-6 text-3xl font-bold">Strategic Takeaways for Leadership</h2>
           <ul className="space-y-3">
-            {competitiveData.keyInsights.map((insight, index) => (
+            {data.keyInsights.map((insight: string, index: number) => (
               <li key={index} className="flex items-start gap-3">
                 <Zap className="mt-1 h-5 w-5 flex-shrink-0" />
                 <span className="text-lg">{insight}</span>
